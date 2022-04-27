@@ -7,6 +7,12 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import trevorBg from "assets/trevorbg.png";
+import trevorProfile from "assets/trevor.jpeg";
+
+const ProfileLink = styled.button`
+  background: red;
+  min-width: 1rem;
+`;
 
 const Header = styled.div`
   background: red;
@@ -14,29 +20,42 @@ const Header = styled.div`
   max-width: 20rem;
 `;
 
+const ContentCard = styled.div`
+  background: white;
+  min-width: 5rem;
+`;
+
 export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <div className="container">
-        <Box color="black" bg="blue">
-          Blue Box
-          {/* <img src={trevorBg} /> */}
-          <Image src={trevorBg} />
-        </Box>
-        <Header>testing</Header>
         <Head>
           <title>Next.js Starter!</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <main>
-          {/* <Header title="Welcome to my app!" /> */}
-          <p className="description">
-            Get started by editing <code>pages/index.js</code>
+          <Box color="black" bg="blue">
+            Blue Box
+            {/* <img src={trevorBg} /> */}
+            <Image src={trevorBg} alt="banner" />
+          </Box>
+          <Box color="black" bg="blue">
+            Blue Box
+            {/* <img src={trevorBg} /> */}
+            <Image src={trevorProfile} alt="profilePic" />
+          </Box>
+          <Header>testing</Header>
+          <h1>Trevor Munoz</h1>
+          <p>
+            We help busy men and women take control of their health, lose fat,
+            and build muscle without giving up foods they love.
           </p>
+          <ProfileLink>Coaching</ProfileLink>
+          <ProfileLink>YouTube</ProfileLink>
+          <ProfileLink>Facebook Group</ProfileLink>
+          <ProfileLink>Supplements</ProfileLink>
         </main>
-
-        <Footer />
       </div>
     </ThemeProvider>
   );
