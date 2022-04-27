@@ -8,16 +8,17 @@ import styled from "styled-components";
 
 import trevorBg from "assets/trevorbg.png";
 import trevorProfile from "assets/trevor.jpeg";
+import cardImage from "assets/card-image.png";
 
 const ProfileLink = styled.button`
   background: red;
   min-width: 1rem;
 `;
 
-const Header = styled.div`
+const ProfileHeader = styled.div`
   background: red;
-  min-width: 5rem;
-  max-width: 20rem;
+  // min-width: 5rem;
+  // max-width: 20rem;
 `;
 
 const ContentCard = styled.div`
@@ -35,26 +36,15 @@ export default function Home() {
         </Head>
 
         <main>
-          <Box color="black" bg="blue">
-            Blue Box
-            {/* <img src={trevorBg} /> */}
-            <Image src={trevorBg} alt="banner" />
-          </Box>
-          <Box color="black" bg="blue">
-            Blue Box
-            {/* <img src={trevorBg} /> */}
-            <Image src={trevorProfile} alt="profilePic" />
-          </Box>
-          <Header>testing</Header>
-          <h1>Trevor Munoz</h1>
-          <p>
-            We help busy men and women take control of their health, lose fat,
-            and build muscle without giving up foods they love.
-          </p>
           <ProfileLink>Coaching</ProfileLink>
           <ProfileLink>YouTube</ProfileLink>
           <ProfileLink>Facebook Group</ProfileLink>
           <ProfileLink>Supplements</ProfileLink>
+
+          <ContentCard>
+            Why there is NO such thing as a fat burning workout
+            <Image src={cardImage} alt="profilePic" />
+          </ContentCard>
         </main>
       </div>
     </ThemeProvider>
