@@ -29,6 +29,7 @@ const ProfileLink = styled.button`
 const ProfileBox = styled.div`
   background: ${(props) => props.theme.colors.dark700};
   padding: 10px;
+  padding-right: 20px;
   border-radius: 20px;
 `;
 
