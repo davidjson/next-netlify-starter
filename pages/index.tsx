@@ -14,6 +14,7 @@ const ContentCard = styled.div`
 `;
 
 const Main = styled.main`
+  min-width: 500px;
   max-width: 500px:
 `;
 
