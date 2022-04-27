@@ -13,19 +13,12 @@ const ContentCard = styled.div`
   min-width: 5rem;
 `;
 
-const TestCard = styled.div`
-  background: red;
-  min-width: 100%;
+const Main = styled.main`
+  max-width: 500px:
 `;
-
-const Main = styled.main``;
 
 export default function Home() {
   return (
-    // <Main>
-    //   <TestCard>hello</TestCard>
-    // </Main>
-
     <ThemeProvider theme={theme}>
       <div className="container">
         <Head>
