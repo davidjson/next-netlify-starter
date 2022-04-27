@@ -10,8 +10,6 @@ import cardImage from "assets/card-image.png";
 
 const Main = styled.div`
   background: ${(props) => props.theme.colors.dark700};
-  // min-width: 5rem;
-  // max-width: 20rem;
 `;
 
 const ProfileLink = styled.button`
