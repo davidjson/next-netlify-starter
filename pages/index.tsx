@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 import trevorBg from "assets/trevorbg.png";
 
-const Header = styled(Box)`
+const Header = styled.div`
   background: red;
   min-width: 5rem;
   max-width: 20rem;
