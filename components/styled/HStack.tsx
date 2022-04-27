@@ -12,13 +12,13 @@ interface IProps {
   // ml margin-left
   // mx margin-left and margin-right
   // my margin-top and margin-bottom
-  m?: string | null;
-  mt?: string | null;
-  mr?: string | null;
-  mb?: string | null;
-  ml?: string | null;
-  mx?: string | null;
-  my?: string | null;
+  m?: number | null;
+  mt?: number | null;
+  mr?: number | null;
+  mb?: number | null;
+  ml?: number | null;
+  mx?: number | null;
+  my?: number | null;
 
   // Padding Props
   // p padding
@@ -28,13 +28,13 @@ interface IProps {
   // pl padding-left
   // px padding-left and padding-right
   // py padding-top and padding-bottom
-  p?: string | null;
-  pt?: string | null;
-  pr?: string | null;
-  pb?: string | null;
-  pl?: string | null;
-  px?: string | null;
-  py?: string | null;
+  p?: number | null;
+  pt?: number | null;
+  pr?: number | null;
+  pb?: number | null;
+  pl?: number | null;
+  px?: number | null;
+  py?: number | null;
 }
 
 const HStack = styled.div<IProps>`
