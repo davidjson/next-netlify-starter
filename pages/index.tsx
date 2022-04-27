@@ -1,25 +1,11 @@
 import Head from "next/head";
-import Footer from "components/Footer";
 import { ThemeProvider } from "styled-components";
-import Box from "components/styled/Box";
-import theme from "styles/theme";
+import { theme } from "styles/theme";
 import Image from "next/image";
 import styled from "styled-components";
 
-import trevorBg from "assets/trevorbg.png";
-import trevorProfile from "assets/trevor.jpeg";
 import cardImage from "assets/card-image.png";
-
-const ProfileLink = styled.button`
-  background: red;
-  min-width: 1rem;
-`;
-
-const ProfileHeader = styled.div`
-  background: red;
-  // min-width: 5rem;
-  // max-width: 20rem;
-`;
+import ProfileHeader from "components/ProfileHeader";
 
 const ContentCard = styled.div`
   background: white;
@@ -36,10 +22,7 @@ export default function Home() {
         </Head>
 
         <main>
-          <ProfileLink>Coaching</ProfileLink>
-          <ProfileLink>YouTube</ProfileLink>
-          <ProfileLink>Facebook Group</ProfileLink>
-          <ProfileLink>Supplements</ProfileLink>
+          <ProfileHeader />
 
           <ContentCard>
             Why there is NO such thing as a fat burning workout
