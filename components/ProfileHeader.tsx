@@ -13,9 +13,9 @@ const Main = styled.div`
 `;
 
 const ProfilePic = styled.div`
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
   overflow: hidden;
   background: black;
 `;
@@ -25,15 +25,34 @@ const ProfileLink = styled.button`
   min-width: 1rem;
 `;
 
-const ProfileBox = styled(VStack)`
+const ProfileBox = styled(HStack)`
   width: 100%;
   background: ${(props) => props.theme.colors.dark700};
   border-radius: 20px;
+  // margin: 100px;
+  bg: ${(props) => props.theme.colors.dark900};
+  // max-width: 320px;
+  // min-width: 500px;
+  width: 100%;
+  padding: 10px;
+  // box-shadow: 4px 4px rgb(0 0 0 / 0.1);
 `;
 
-const ProfileBio = styled.div`
-  text-align: center;
+const Bio = styled(VStack)`
+  justify-content: center;
+  padding-left: 20px;
   width: 300px;
+`;
+
+const BioHeader = styled.h1`
+  color: ${(props) => props.theme.colors.dark200};
+  font-size: 1.5em;
+  font-weight: bold;
+`;
+
+const BioText = styled.p`
+  color: ${(props) => props.theme.colors.dark400};
+  font-size: 0.8em;
 `;
 
 const Test = styled.div`
@@ -54,26 +73,20 @@ const Banner = styled.div``;
 export default function ProfileHeader() {
   return (
     <Main>
-      <Banner>
+      {/* <Banner>
         <Image src={trevorBg} alt="banner" />
-      </Banner>
+      </Banner> */}
       <ProfileBox>
-        <Center pt={10}>
-          <ProfilePic>
-            <Image src={trevorProfile} />
-          </ProfilePic>
-        </Center>
-        <Center pt={10}>
-          <h1>Trevor Munoz</h1>
-        </Center>
-        <Center pt={10}>
-          <ProfileBio>
-            <p>
-              I help busy men and women take control of their health, lose fat,
-              and build muscle without giving up foods they love.
-            </p>
-          </ProfileBio>
-        </Center>
+        <ProfilePic>
+          <Image src={trevorProfile} />
+        </ProfilePic>
+        <Bio>
+          <BioHeader>Trevor Munoz</BioHeader>
+          <BioText>
+            I help busy men and women take control of their health, lose fat,
+            and build muscle without giving up foods they love.
+          </BioText>
+        </Bio>
         <div></div>
         <div></div>
       </ProfileBox>
