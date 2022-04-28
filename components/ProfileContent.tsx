@@ -40,51 +40,52 @@ interface ContentCardProps {
   labels: ILabel[];
 }
 
-const Card = () => {
-  const LabelLink = (props: LabelLinkProps) => {
-    const Main = styled.div`
-      padding: 7px 0px;
-    `;
+interface LabelLinkProps {
+  color?: keyof MainTheme["colors"];
+  bg?: keyof MainTheme["colors"];
+  title: string;
+  link?: string;
+}
 
-    const Link = styled.button`
-      padding: 1px 3px;
-      border-radius: 5px;
-      border: 2px solid
-        ${(p) => (props.bg ? p.theme.colors[props.bg] : p.theme.colors.dark700)};
-      background: ${(p) => p.theme.colors.dark700};
-      display: block;
-    `;
-
-    const LinkText = styled.p`
-      font-size: 10px;
-      font-weight: normal;
-      color: ${(p) =>
-        props.color ? p.theme.colors[props.color] : p.theme.colors.dark500};
-    `;
-
-    return (
-      <Main>
-        <Link>
-          <LinkText>{props.title}</LinkText>
-        </Link>
-      </Main>
-    );
-  };
-
-  const Main = styled(VStack)``;
-
-  interface LabelLinkProps {
-    color?: keyof MainTheme["colors"];
-    bg?: keyof MainTheme["colors"];
-    title: string;
-    link?: string;
-  }
-
-  const ContentLink = styled.a`
-    font-weight: bold;
-    text-align: center;
+const LabelLink = (props: LabelLinkProps) => {
+  const Main = styled.div`
+    padding: 7px 0px;
   `;
 
+  const Link = styled.button`
+    padding: 1px 3px;
+    border-radius: 5px;
+    border: 2px solid
+      ${(p) => (props.bg ? p.theme.colors[props.bg] : p.theme.colors.dark700)};
+    background: ${(p) => p.theme.colors.dark700};
+    display: block;
+  `;
+
+  const LinkText = styled.p`
+    font-size: 10px;
+    font-weight: normal;
+    color: ${(p) =>
+      props.color ? p.theme.colors[props.color] : p.theme.colors.dark500};
+  `;
+
+  return (
+    <Main>
+      <Link>
+        <LinkText>{props.title}</LinkText>
+      </Link>
+    </Main>
+  );
+};
+
+const ContentLink = styled.a`
+  font-weight: bold;
+  text-align: center;
+`;
+
+const BlogPost = () => {
+  const Main = styled(VStack)`
+    padding-right: 20px;
+  `;
   return (
     <Main>
       <ContentLink>
@@ -93,17 +94,6 @@ const Card = () => {
       <Center>
         <LabelLink title="Weight Loss" />
       </Center>
-    </Main>
-  );
-};
-
-const ContentCard = () => {
-  const Main = styled(VStack)`
-    padding-right: 20px;
-  `;
-  return (
-    <Main>
-      <Card />
     </Main>
   );
 };
@@ -117,13 +107,13 @@ export default function ProfileContent() {
   return (
     <Main>
       <Line />
-      <ContentCard />
+      <BlogPost />
       <Line />
-      <ContentCard />
+      <BlogPost />
       <Line />
-      <ContentCard />
+      <BlogPost />
       <Line />
-      <ContentCard />
+      <BlogPost />
       <Line />
     </Main>
   );
