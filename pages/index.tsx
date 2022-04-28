@@ -11,10 +11,10 @@ import ProfileContent from "components/ProfileContent";
 
 export default function Home() {
   const Main = styled.main`
-  background: ${(props) => props.theme.colors.dark900};
-  width: 100%;
-  max-width: 500px:
-`;
+    background: ${(props) => props.theme.colors.dark900};
+    width: 100%;
+    max-width: 500px:
+  `;
 
   return (
     <ThemeProvider theme={theme}>

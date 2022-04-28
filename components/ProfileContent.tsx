@@ -41,10 +41,9 @@ interface ContentCardProps {
 }
 
 const ContentCard = () => {
-  const Main = styled.div``;
-
   const ContentLink = styled.a`
     font-weight: bold;
+    text-align: center;
   `;
 
   const Card = () => {
@@ -79,7 +78,7 @@ const ContentCard = () => {
       );
     };
 
-    const Main = styled.div``;
+    const Main = styled(VStack)``;
 
     interface LabelLinkProps {
       color?: keyof MainTheme["colors"];
@@ -93,10 +92,16 @@ const ContentCard = () => {
         <ContentLink>
           Why there is NO such thing as a fat burning workout
         </ContentLink>
-        <LabelLink title="Weight Loss" />
+        <Center>
+          <LabelLink title="Weight Loss" />
+        </Center>
       </Main>
     );
   };
+
+  const Main = styled(VStack)`
+    padding-right: 20px;
+  `;
 
   return (
     <Main>
@@ -119,6 +124,12 @@ export default function ProfileContent() {
   return (
     <Main>
       {/* <Heading>CONTENT</Heading> */}
+      <Line></Line>
+      <ContentCard></ContentCard>
+      <Line></Line>
+      <ContentCard></ContentCard>
+      <Line></Line>
+      <ContentCard></ContentCard>
       <Line></Line>
       <ContentCard></ContentCard>
       <Line></Line>

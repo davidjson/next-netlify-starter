@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
+import { FunctionComponent } from "react";
 
 import trevorBg from "assets/trevorbg.png";
 import trevorProfile from "assets/trevor.jpeg";
@@ -9,9 +10,11 @@ import HStack from "./styled/HStack";
 import Center from "./styled/Center";
 
 import { MainTheme } from "styles/theme";
+import { SocialIcon, SocialIconProps } from "react-social-icons";
+type ISocialIcon = FunctionComponent<SocialIconProps>;
 
 const ProfilePic = styled.div`
-  // min-height: 50px;
+  border-radius: 5px;
   min-width: 40px;
   width: 40px;
   height: 40px;
@@ -22,9 +25,7 @@ const ProfilePic = styled.div`
 const ProfileLinks = () => {
   const Main = styled.div`
     background: ${(props) => props.theme.colors.dark900};
-    padding: 5px;
-    padding-right: 20px;
-    border-radius: 20px;
+    padding: 0px 15px;
     align-items: start;
   `;
 
@@ -33,6 +34,7 @@ const ProfileLinks = () => {
     color?: keyof MainTheme["colors"];
     bg?: keyof MainTheme["colors"];
     link?: string;
+    socialUrl?: string;
   }
 
   const ProfileLink = (props: ProfileLinkProps) => {
@@ -46,13 +48,16 @@ const ProfileLinks = () => {
     `;
 
     const Link = styled.button`
+      display: flex;
+      flex-direction: row;
+      align-items: center;
       border: none;
-      padding: 7px 5px;
+      padding: 7px 8px 5px 5px;
       border-radius: 5px;
       background: ${(p) =>
         props.bg ? p.theme.colors[props.bg] : p.theme.colors.dark700};
       width: 100%;
-      display: block;
+      // display: block;
       // display: inline-block;
     `;
 
@@ -62,9 +67,22 @@ const ProfileLinks = () => {
       font-weight: bold;
     `;
 
+    const SocialIconContainer = styled.div`
+      padding: 0px 4px;
+    `;
+
     return (
       <Main>
         <Link>
+          {props.socialUrl && (
+            <SocialIconContainer>
+              <SocialIcon
+                url={props.socialUrl}
+                style={{ height: 20, width: 20 }}
+                bgColor="black"
+              />
+            </SocialIconContainer>
+          )}
           <LinkText>{props.title}</LinkText>
         </Link>
       </Main>
@@ -79,7 +97,7 @@ const ProfileLinks = () => {
     <Main>
       <LinkWrapper>
         <ProfileLink title="Apply For Coaching" bg="one" color="dark800" />
-        <ProfileLink title="YouTube" />
+        <ProfileLink title="YouTube" socialUrl="youtube.com" />
         <ProfileLink title="Facebook Group" />
         <ProfileLink title="Supplements" />
       </LinkWrapper>
@@ -87,8 +105,11 @@ const ProfileLinks = () => {
   );
 };
 
-const ProfileBox = styled(HStack)`
+const ProfileBox = styled(VStack)`
+  position: relative;
+  top: -10px;
   width: 100%;
+  border-radius: 10px;
   background: ${(props) => props.theme.colors.dark900};
   bg: ${(props) => props.theme.colors.dark900};
 `;
@@ -110,24 +131,19 @@ const BioHeaderContainer = styled.div`
 
 const BioHeader = styled.h1`
   color: ${(props) => props.theme.colors.dark200};
-  font-size: 1.5em;
-  font-weight: bold;
-`;
-
-const BioTextContainer = styled(Center)`
-  padding-left: 20px;
-  width: 100%;
+  font-size: 0.9em;
+  font-weight: bolder;
 `;
 
 const BioText = styled.p`
   color: ${(props) => props.theme.colors.dark500};
-  font-size: 0.6em;
+  font-size: 0.7em;
   font-weight: light;
 `;
 
 const Banner = styled.div`
   width: 100%;
-  height: 80px;
+  height: 100px;
   overflow: hidden;
   background: black;
 `;
@@ -147,21 +163,15 @@ export default function ProfileHeader() {
           </ProfilePic>
           <BioHeaderContainer>
             <BioHeader>Trevor</BioHeader>
-          </BioHeaderContainer>
-          <BioTextContainer>
             <BioText>
               I help busy men and women take control of their health, lose fat,
               and build muscle without giving up foods they love.
             </BioText>
-          </BioTextContainer>
+          </BioHeaderContainer>
+          {/* <BioTextContainer></BioTextContainer> */}
         </BioMain>
-        <div></div>
-        <div></div>
+        <ProfileLinks />
       </ProfileBox>
-      <Center>
-        <Line />
-      </Center>
-      <ProfileLinks />
     </Main>
   );
 }
