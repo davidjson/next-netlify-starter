@@ -22,6 +22,11 @@ export default function Home() {
         <Head>
           <title>Next.js Starter!</title>
           <link rel="icon" href="/favicon.ico" />
+          <link
+            href="//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700"
+            rel="stylesheet"
+            type="text/css"
+          />
         </Head>
         <GlobalStyle />
         <Main>

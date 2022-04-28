@@ -97,7 +97,7 @@ const ProfileLinks = () => {
     <Main>
       <LinkWrapper>
         <ProfileLink title="Apply For Coaching" bg="one" color="dark800" />
-        <ProfileLink title="YouTube" socialUrl="youtube.com" />
+        <ProfileLink title="YouTube" />
         <ProfileLink title="Facebook Group" />
         <ProfileLink title="Supplements" />
       </LinkWrapper>
@@ -131,8 +131,9 @@ const BioHeaderContainer = styled.div`
 
 const BioHeader = styled.h1`
   color: ${(props) => props.theme.colors.dark200};
-  font-size: 0.9em;
-  font-weight: bolder;
+  font-size: 1em;
+  font-family: "Open Sans";
+  font-weight: bold;
 `;
 
 const BioText = styled.p`
@@ -162,7 +163,7 @@ export default function ProfileHeader() {
             <Image src={trevorProfile} />
           </ProfilePic>
           <BioHeaderContainer>
-            <BioHeader>Trevor</BioHeader>
+            <BioHeader>Trevor and Natalia</BioHeader>
             <BioText>
               I help busy men and women take control of their health, lose fat,
               and build muscle without giving up foods they love.
