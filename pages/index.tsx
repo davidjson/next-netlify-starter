@@ -14,8 +14,15 @@ const ContentCard = styled.div`
 `;
 
 const Main = styled.main`
-  min-width: 500px;
+  background: ${(props) => props.theme.colors.dark900};
+  width: 100%;
   max-width: 500px:
+`;
+
+const Test = styled.div`
+  background: red;
+  width: 100%;
+  height: 5px;
 `;
 
 export default function Home() {
@@ -27,8 +34,8 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <GlobalStyle />
-
         <Main>
+          <Test></Test>
           <ProfileHeader />
           <ContentCard>
             Why there is NO such thing as a fat burning workout

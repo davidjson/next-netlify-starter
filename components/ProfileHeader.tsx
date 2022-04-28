@@ -8,8 +8,10 @@ import VStack from "./styled/VStack";
 import HStack from "./styled/HStack";
 import Center from "./styled/Center";
 
+import { MainTheme } from "styles/theme";
+
 const Main = styled.div`
-  min-width: 500px;
+  // min-width: 500px;
 `;
 
 const ProfilePic = styled.div`
@@ -30,24 +32,35 @@ const ProfileLinks = () => {
 
   interface ProfileLinkProps {
     title: string;
+    color?: keyof MainTheme["colors"];
+    bg?: keyof MainTheme["colors"];
     link?: string;
   }
 
   const ProfileLink = (props: ProfileLinkProps) => {
     const Main = styled.div`
-      padding-left: 10px;
+      padding: 5px;
+    `;
+
+    const LinkContainer = styled.div`
+      min-width: 1rem;
+      max-width: 100%;
     `;
 
     const Link = styled.button`
       border: none;
-      padding: 10px;
+      padding: 7px 5px;
       border-radius: 5px;
-      background: ${(props) => props.theme.colors.dark700};
-      min-width: 1rem;
+      background: ${(p) =>
+        props.bg ? p.theme.colors[props.bg] : p.theme.colors.dark700};
+      width: 100%;
+      display: block;
+      // display: inline-block;
     `;
 
     const LinkText = styled.p`
-      color: ${(props) => props.theme.colors.dark300};
+      color: ${(p) =>
+        props.color ? p.theme.colors[props.color] : p.theme.colors.dark300};
       font-weight: bold;
     `;
 
@@ -60,14 +73,18 @@ const ProfileLinks = () => {
     );
   };
 
+  const LinkWrapper = styled(HStack)`
+    flex-wrap: wrap;
+  `;
+
   return (
     <Main>
-      <HStack>
-        <ProfileLink title="Coaching" />
+      <LinkWrapper>
+        <ProfileLink title="Coaching Interest Form" bg="one" color="dark800" />
         <ProfileLink title="YouTube" />
         <ProfileLink title="Facebook Group" />
         <ProfileLink title="Supplements" />
-      </HStack>
+      </LinkWrapper>
     </Main>
   );
 };
@@ -77,13 +94,13 @@ const ProfileBox = styled(HStack)`
   background: ${(props) => props.theme.colors.dark900};
   border-radius: 20px;
   bg: ${(props) => props.theme.colors.dark900};
-  width: 100%;
   padding: 15px;
 `;
 
 const Line = styled.div`
   height: 1px;
   background: ${(props) => props.theme.colors.dark600};
+  width: 80%;
 `;
 
 const BioMain = styled(HStack)`
@@ -147,7 +164,9 @@ export default function ProfileHeader() {
         <div></div>
         <div></div>
       </ProfileBox>
-      <Line></Line>
+      <Center>
+        <Line />
+      </Center>
       <ProfileLinks />
     </Main>
   );
