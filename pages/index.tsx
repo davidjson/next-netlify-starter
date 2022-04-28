@@ -7,25 +7,15 @@ import styled from "styled-components";
 import GlobalStyle from "styles/globalStyles";
 import cardImage from "assets/card-image.png";
 import ProfileHeader from "components/ProfileHeader";
+import ProfileContent from "components/ProfileContent";
 
-const ContentCard = styled.div`
-  background: white;
-  min-width: 5rem;
-`;
-
-const Main = styled.main`
+export default function Home() {
+  const Main = styled.main`
   background: ${(props) => props.theme.colors.dark900};
   width: 100%;
   max-width: 500px:
 `;
 
-const Test = styled.div`
-  background: red;
-  width: 100%;
-  height: 5px;
-`;
-
-export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <div className="container">
@@ -36,10 +26,7 @@ export default function Home() {
         <GlobalStyle />
         <Main>
           <ProfileHeader />
-          <ContentCard>
-            Why there is NO such thing as a fat burning workout
-            <Image src={cardImage} alt="profilePic" />
-          </ContentCard>
+          <ProfileContent />
         </Main>
       </div>
     </ThemeProvider>

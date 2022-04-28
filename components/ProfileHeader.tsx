@@ -10,10 +10,6 @@ import Center from "./styled/Center";
 
 import { MainTheme } from "styles/theme";
 
-const Main = styled.div`
-  // min-width: 500px;
-`;
-
 const ProfilePic = styled.div`
   // min-height: 50px;
   min-width: 40px;
@@ -82,7 +78,7 @@ const ProfileLinks = () => {
   return (
     <Main>
       <LinkWrapper>
-        <ProfileLink title="Coaching Interest Form" bg="one" color="dark800" />
+        <ProfileLink title="Apply For Coaching" bg="one" color="dark800" />
         <ProfileLink title="YouTube" />
         <ProfileLink title="Facebook Group" />
         <ProfileLink title="Supplements" />
@@ -94,18 +90,7 @@ const ProfileLinks = () => {
 const ProfileBox = styled(HStack)`
   width: 100%;
   background: ${(props) => props.theme.colors.dark900};
-  // border-radius: 20px;
   bg: ${(props) => props.theme.colors.dark900};
-  // padding: 15px;
-`;
-
-const ProfileBox2 = styled(HStack)`
-  width: 100%;
-  background: ${(props) => props.theme.colors.dark700};
-  border-radius: 20px;
-  bg: ${(props) => props.theme.colors.dark900};
-  width: 100%;
-  // padding: 10px;
 `;
 
 const Line = styled.div`
@@ -148,6 +133,8 @@ const Banner = styled.div`
 `;
 
 export default function ProfileHeader() {
+  const Main = styled.div``;
+
   return (
     <Main>
       <Banner>
