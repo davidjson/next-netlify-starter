@@ -77,9 +77,15 @@ const LabelLink = (props: LabelLinkProps) => {
   );
 };
 
-const ContentLink = styled.a`
-  font-weight: bold;
+const ContentLink = styled.button`
+  border: none;
+  font-weight: bolder;
+  font-family: Georgia;
+  padding-top: 30px;
+  padding-left: 20px;
+  font-size: 24px;
   text-align: center;
+  background: ${(props) => props.theme.colors.dark900};
 `;
 
 const BlogPost = () => {
