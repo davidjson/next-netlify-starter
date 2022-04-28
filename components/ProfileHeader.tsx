@@ -13,35 +13,85 @@ const Main = styled.div`
 `;
 
 const ProfilePic = styled.div`
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
+  width: 50px;
+  height: 50px;
   overflow: hidden;
   background: black;
 `;
 
-const ProfileLink = styled.button`
-  background: red;
-  min-width: 1rem;
-`;
+const ProfileLinks = () => {
+  const Main = styled.div`
+    background: ${(props) => props.theme.colors.dark900};
+    padding: 15px;
+    padding-right: 20px;
+    border-radius: 20px;
+    align-items: start;
+  `;
+
+  interface ProfileLinkProps {
+    title: string;
+    link?: string;
+  }
+
+  const ProfileLink = (props: ProfileLinkProps) => {
+    const Main = styled.div`
+      padding-left: 10px;
+    `;
+
+    const Link = styled.button`
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      background: ${(props) => props.theme.colors.dark700};
+      min-width: 1rem;
+    `;
+
+    const LinkText = styled.p`
+      color: ${(props) => props.theme.colors.dark300};
+      font-weight: bold;
+    `;
+
+    return (
+      <Main>
+        <Link>
+          <LinkText>{props.title}</LinkText>
+        </Link>
+      </Main>
+    );
+  };
+
+  return (
+    <Main>
+      <HStack>
+        <ProfileLink title="Coaching" />
+        <ProfileLink title="YouTube" />
+        <ProfileLink title="Facebook Group" />
+        <ProfileLink title="Supplements" />
+      </HStack>
+    </Main>
+  );
+};
 
 const ProfileBox = styled(HStack)`
   width: 100%;
-  background: ${(props) => props.theme.colors.dark700};
+  background: ${(props) => props.theme.colors.dark900};
   border-radius: 20px;
-  // margin: 100px;
   bg: ${(props) => props.theme.colors.dark900};
-  // max-width: 320px;
-  // min-width: 500px;
   width: 100%;
-  padding: 10px;
-  // box-shadow: 4px 4px rgb(0 0 0 / 0.1);
+  padding: 15px;
 `;
 
-const Bio = styled(VStack)`
-  justify-content: center;
-  padding-left: 20px;
+const Line = styled.div`
+  height: 1px;
+  background: ${(props) => props.theme.colors.dark600};
+`;
+
+const BioMain = styled(HStack)`
   width: 300px;
+`;
+
+const BioHeaderContainer = styled(Center)`
+  padding-left: 20px;
 `;
 
 const BioHeader = styled.h1`
@@ -50,52 +100,55 @@ const BioHeader = styled.h1`
   font-weight: bold;
 `;
 
+const BioTextContainer = styled(Center)`
+  padding-left: 20px;
+  min-width: 250px;
+`;
+
 const BioText = styled.p`
-  color: ${(props) => props.theme.colors.dark400};
+  color: ${(props) => props.theme.colors.dark500};
   font-size: 0.8em;
 `;
 
-const Test = styled.div`
+const Banner = styled.div`
   width: 100%;
-  max-width: 400px;
+  height: 80px;
+  overflow: hidden;
+  background: black;
 `;
-
-const LinkBox = styled.div`
-  background: ${(props) => props.theme.colors.dark700};
-  padding: 10px;
-  padding-right: 20px;
-  border-radius: 20px;
-  align-items: start;
-`;
-
-const Banner = styled.div``;
 
 export default function ProfileHeader() {
   return (
     <Main>
-      {/* <Banner>
+      <Banner>
         <Image src={trevorBg} alt="banner" />
-      </Banner> */}
+      </Banner>
       <ProfileBox>
-        <ProfilePic>
-          <Image src={trevorProfile} />
-        </ProfilePic>
-        <Bio>
-          <BioHeader>Trevor Munoz</BioHeader>
-          <BioText>
-            I help busy men and women take control of their health, lose fat,
-            and build muscle without giving up foods they love.
-          </BioText>
-        </Bio>
+        <BioMain>
+          <Center>
+            <ProfilePic>
+              <Image src={trevorProfile} />
+            </ProfilePic>
+          </Center>
+          <Center>
+            <BioHeaderContainer>
+              <BioHeader>Trevor</BioHeader>
+            </BioHeaderContainer>
+          </Center>
+          <Center>
+            <BioTextContainer>
+              <BioText>
+                I help busy men and women take control of their health, lose
+                fat, and build muscle without giving up foods they love.
+              </BioText>
+            </BioTextContainer>
+          </Center>
+        </BioMain>
         <div></div>
         <div></div>
       </ProfileBox>
-      <LinkBox>
-        <ProfileLink>Coaching</ProfileLink>
-        <ProfileLink>YouTube</ProfileLink>
-        <ProfileLink>Facebook Group</ProfileLink>
-        <ProfileLink>Supplements</ProfileLink>
-      </LinkBox>
+      <Line></Line>
+      <ProfileLinks />
     </Main>
   );
 }
