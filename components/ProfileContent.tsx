@@ -40,69 +40,67 @@ interface ContentCardProps {
   labels: ILabel[];
 }
 
-const ContentCard = () => {
+const Card = () => {
+  const LabelLink = (props: LabelLinkProps) => {
+    const Main = styled.div`
+      padding: 7px 0px;
+    `;
+
+    const Link = styled.button`
+      padding: 1px 3px;
+      border-radius: 5px;
+      border: 2px solid
+        ${(p) => (props.bg ? p.theme.colors[props.bg] : p.theme.colors.dark700)};
+      background: ${(p) => p.theme.colors.dark700};
+      display: block;
+    `;
+
+    const LinkText = styled.p`
+      font-size: 10px;
+      font-weight: normal;
+      color: ${(p) =>
+        props.color ? p.theme.colors[props.color] : p.theme.colors.dark500};
+    `;
+
+    return (
+      <Main>
+        <Link>
+          <LinkText>{props.title}</LinkText>
+        </Link>
+      </Main>
+    );
+  };
+
+  const Main = styled(VStack)``;
+
+  interface LabelLinkProps {
+    color?: keyof MainTheme["colors"];
+    bg?: keyof MainTheme["colors"];
+    title: string;
+    link?: string;
+  }
+
   const ContentLink = styled.a`
     font-weight: bold;
     text-align: center;
   `;
 
-  const Card = () => {
-    const LabelLink = (props: LabelLinkProps) => {
-      const Main = styled.div`
-        padding: 7px 0px;
-      `;
+  return (
+    <Main>
+      <ContentLink>
+        Why there is NO such thing as a fat burning workout
+      </ContentLink>
+      <Center>
+        <LabelLink title="Weight Loss" />
+      </Center>
+    </Main>
+  );
+};
 
-      const Link = styled.button`
-        padding: 1px 3px;
-        border-radius: 5px;
-        border: 2px solid
-          ${(p) =>
-            props.bg ? p.theme.colors[props.bg] : p.theme.colors.dark700};
-        background: ${(p) => p.theme.colors.dark700};
-        display: block;
-      `;
-
-      const LinkText = styled.p`
-        font-size: 10px;
-        font-weight: normal;
-        color: ${(p) =>
-          props.color ? p.theme.colors[props.color] : p.theme.colors.dark500};
-      `;
-
-      return (
-        <Main>
-          <Link>
-            <LinkText>{props.title}</LinkText>
-          </Link>
-        </Main>
-      );
-    };
-
-    const Main = styled(VStack)``;
-
-    interface LabelLinkProps {
-      color?: keyof MainTheme["colors"];
-      bg?: keyof MainTheme["colors"];
-      title: string;
-      link?: string;
-    }
-
-    return (
-      <Main>
-        <ContentLink>
-          Why there is NO such thing as a fat burning workout
-        </ContentLink>
-        <Center>
-          <LabelLink title="Weight Loss" />
-        </Center>
-      </Main>
-    );
-  };
-
+const ContentCard = () => {
   const Main = styled(VStack)`
     padding-right: 20px;
   `;
-
   return (
     <Main>
       <Card />
@@ -116,23 +114,17 @@ export default function ProfileContent() {
     background: ${(props) => props.theme.colors.dark900};
     align-items: center;
   `;
-
-  const Heading = styled.h1`
-    font-weight: bold;
-  `;
-
   return (
     <Main>
-      {/* <Heading>CONTENT</Heading> */}
-      <Line></Line>
-      <ContentCard></ContentCard>
-      <Line></Line>
-      <ContentCard></ContentCard>
-      <Line></Line>
-      <ContentCard></ContentCard>
-      <Line></Line>
-      <ContentCard></ContentCard>
-      <Line></Line>
+      <Line />
+      <ContentCard />
+      <Line />
+      <ContentCard />
+      <Line />
+      <ContentCard />
+      <Line />
+      <ContentCard />
+      <Line />
     </Main>
   );
 }
