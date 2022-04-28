@@ -77,12 +77,16 @@ const LabelLink = (props: LabelLinkProps) => {
   );
 };
 
-const ContentLink = styled.button`
+const ContentLinkContainer = styled.div`
+  padding: 25px 20px;
+`;
+
+const ContentLink = styled.a`
   border: none;
   font-weight: bolder;
   font-family: Georgia;
-  padding-top: 30px;
-  padding-left: 20px;
+  color: black;
+  text-decoration: none;
   font-size: 24px;
   text-align: center;
   background: ${(props) => props.theme.colors.dark900};
@@ -94,9 +98,11 @@ const BlogPost = () => {
   `;
   return (
     <Main>
-      <ContentLink>
-        Why there is NO such thing as a fat burning workout
-      </ContentLink>
+      <ContentLinkContainer>
+        <ContentLink href="">
+          Why there is NO such thing as a fat burning workout
+        </ContentLink>
+      </ContentLinkContainer>
       <Center>
         <LabelLink title="Weight Loss" />
       </Center>
