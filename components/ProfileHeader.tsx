@@ -15,8 +15,10 @@ const Main = styled.div`
 `;
 
 const ProfilePic = styled.div`
-  width: 50px;
-  height: 50px;
+  // min-height: 50px;
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
   overflow: hidden;
   background: black;
 `;
@@ -24,7 +26,7 @@ const ProfilePic = styled.div`
 const ProfileLinks = () => {
   const Main = styled.div`
     background: ${(props) => props.theme.colors.dark900};
-    padding: 15px;
+    padding: 5px;
     padding-right: 20px;
     border-radius: 20px;
     align-items: start;
@@ -92,9 +94,18 @@ const ProfileLinks = () => {
 const ProfileBox = styled(HStack)`
   width: 100%;
   background: ${(props) => props.theme.colors.dark900};
+  // border-radius: 20px;
+  bg: ${(props) => props.theme.colors.dark900};
+  // padding: 15px;
+`;
+
+const ProfileBox2 = styled(HStack)`
+  width: 100%;
+  background: ${(props) => props.theme.colors.dark700};
   border-radius: 20px;
   bg: ${(props) => props.theme.colors.dark900};
-  padding: 15px;
+  width: 100%;
+  // padding: 10px;
 `;
 
 const Line = styled.div`
@@ -104,11 +115,12 @@ const Line = styled.div`
 `;
 
 const BioMain = styled(HStack)`
-  width: 300px;
+  padding: 15px;
+  align-items: center;
 `;
 
-const BioHeaderContainer = styled(Center)`
-  padding-left: 20px;
+const BioHeaderContainer = styled.div`
+  padding-left: 15px;
 `;
 
 const BioHeader = styled.h1`
@@ -119,12 +131,13 @@ const BioHeader = styled.h1`
 
 const BioTextContainer = styled(Center)`
   padding-left: 20px;
-  min-width: 250px;
+  width: 100%;
 `;
 
 const BioText = styled.p`
   color: ${(props) => props.theme.colors.dark500};
-  font-size: 0.8em;
+  font-size: 0.6em;
+  font-weight: light;
 `;
 
 const Banner = styled.div`
@@ -142,24 +155,18 @@ export default function ProfileHeader() {
       </Banner>
       <ProfileBox>
         <BioMain>
-          <Center>
-            <ProfilePic>
-              <Image src={trevorProfile} />
-            </ProfilePic>
-          </Center>
-          <Center>
-            <BioHeaderContainer>
-              <BioHeader>Trevor</BioHeader>
-            </BioHeaderContainer>
-          </Center>
-          <Center>
-            <BioTextContainer>
-              <BioText>
-                I help busy men and women take control of their health, lose
-                fat, and build muscle without giving up foods they love.
-              </BioText>
-            </BioTextContainer>
-          </Center>
+          <ProfilePic>
+            <Image src={trevorProfile} />
+          </ProfilePic>
+          <BioHeaderContainer>
+            <BioHeader>Trevor</BioHeader>
+          </BioHeaderContainer>
+          <BioTextContainer>
+            <BioText>
+              I help busy men and women take control of their health, lose fat,
+              and build muscle without giving up foods they love.
+            </BioText>
+          </BioTextContainer>
         </BioMain>
         <div></div>
         <div></div>

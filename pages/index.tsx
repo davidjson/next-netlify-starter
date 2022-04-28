@@ -35,7 +35,6 @@ export default function Home() {
         </Head>
         <GlobalStyle />
         <Main>
-          <Test></Test>
           <ProfileHeader />
           <ContentCard>
             Why there is NO such thing as a fat burning workout
