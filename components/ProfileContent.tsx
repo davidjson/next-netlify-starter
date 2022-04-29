@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import trevorBg from "assets/trevorbg.png";
-import trevorProfile from "assets/trevor.jpeg";
+import trevorProfile from "assets/trevor.png";
 
 import VStack from "./styled/VStack";
 import HStack from "./styled/HStack";

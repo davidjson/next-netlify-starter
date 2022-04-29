@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import { FunctionComponent } from "react";
 
-import trevorProfile from "assets/trevorInsta.png";
+import trevorProfile from "assets/trevor.png";
 import insta1 from "assets/insta1.png";
 import insta2 from "assets/insta2.png";
 import insta3 from "assets/insta3.png";
