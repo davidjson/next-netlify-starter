@@ -35,7 +35,7 @@ const ProfileLinks = () => {
     title: string;
     color?: keyof MainTheme["colors"];
     bg?: keyof MainTheme["colors"];
-    link?: string;
+    href?: string;
     socialUrl?: string;
   }
 
@@ -45,6 +45,7 @@ const ProfileLinks = () => {
     `;
 
     const Link = styled.a`
+      text-decoration: none;
       class: button;
       display: flex;
       flex-direction: row;
@@ -70,16 +71,7 @@ const ProfileLinks = () => {
 
     return (
       <Main>
-        <Link>
-          {props.socialUrl && (
-            <SocialIconContainer>
-              <SocialIcon
-                url={props.socialUrl}
-                style={{ height: 20, width: 20 }}
-                bgColor="black"
-              />
-            </SocialIconContainer>
-          )}
+        <Link href={props.href}>
           <LinkText>{props.title}</LinkText>
         </Link>
       </Main>
@@ -95,11 +87,24 @@ const ProfileLinks = () => {
   return (
     <Main>
       <LinkWrapper>
-        {/* <ProfileLink title="About Me" bg="one" color="dark800" /> */}
-        <ProfileLink title="Apply For Coaching" bg="one" color="dark800" />
-        <ProfileLink title="Facebook Group" />
-        <ProfileLink title="YouTube" />
-        <ProfileLink title="Supplements" />
+        <ProfileLink
+          title="Apply For Coaching"
+          bg="one"
+          color="dark800"
+          href="https://strengtheraacademy.wufoo.com/forms/z1nwwhhj0psfn0v/?fbclid=IwAR0PvToxPF_SFeKOg5lFizPHgT7pfJ0RPKZcvrOJl4W2MB3ZO9wRm6Stxbo"
+        />
+        <ProfileLink
+          title="Facebook Group"
+          href="https://www.facebook.com/groups/1163773953713352/"
+        />
+        <ProfileLink
+          title="YouTube"
+          href="https://www.youtube.com/channel/UCFS54JzzBLbNOLBWPATKF8Q"
+        />
+        <ProfileLink
+          title="Supplements"
+          href="https://www.canva.com/link?target=https%3A%2F%2Frefer.prestigelabs.com%2F%3Faf%3Djiypceeb%26fbclid%3DIwAR0SWrIgVIBRbcwGevoYYcra5tyPz2kTzp5_uqEMwEwGCdyd6iLE-1XH8Sk&design=DAEp-q8nzeI"
+        />
       </LinkWrapper>
     </Main>
   );
