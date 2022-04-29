@@ -40,24 +40,24 @@ interface ContentCardProps {
   labels: ILabel[];
 }
 
-interface LabelLinkProps {
+interface LabelProps {
   color?: keyof MainTheme["colors"];
   bg?: keyof MainTheme["colors"];
   title: string;
-  link?: string;
+  href: string;
 }
 
-const LabelLink = (props: LabelLinkProps) => {
+const Label = (props: LabelProps) => {
   const Main = styled.div`
-    padding: 7px 0px;
+    padding: 7px 2px;
   `;
 
-  const Link = styled.button`
+  const Link = styled.div`
     padding: 1px 3px;
     border-radius: 5px;
-    border: 2px solid
-      ${(p) => (props.bg ? p.theme.colors[props.bg] : p.theme.colors.dark700)};
-    background: ${(p) => p.theme.colors.dark700};
+    border: 1px solid
+      ${(p) => (props.bg ? p.theme.colors[props.bg] : p.theme.colors.dark600)};
+    // background: ${(p) => p.theme.colors.dark700};
     display: block;
   `;
 
@@ -65,7 +65,7 @@ const LabelLink = (props: LabelLinkProps) => {
     font-size: 10px;
     font-weight: normal;
     color: ${(p) =>
-      props.color ? p.theme.colors[props.color] : p.theme.colors.dark500};
+      props.color ? p.theme.colors[props.color] : p.theme.colors.dark650};
   `;
 
   return (
@@ -94,26 +94,29 @@ const ContentLink = styled.a`
 
 interface BlogPostLabel {
   title: string;
-  link?: string;
+  link: string;
 }
 
 interface BlogPostProps {
   title?: string;
-  links?: BlogPostLabel[];
+  links: BlogPostLabel[];
 }
 
 const BlogPost = (props: BlogPostProps) => {
   const Main = styled(VStack)`
     padding-right: 20px;
   `;
+
+  const labels = props.links.map((label) => (
+    <Label title={label.title} href={label.link} />
+  ));
+
   return (
     <Main>
       <ContentLinkContainer>
         <ContentLink href="">{props.title}</ContentLink>
       </ContentLinkContainer>
-      <Center>
-        <LabelLink title="Weight Loss" />
-      </Center>
+      <Center>{labels}</Center>
     </Main>
   );
 };
@@ -124,12 +127,32 @@ export default function ProfileContent() {
     background: ${(props) => props.theme.colors.dark900};
     align-items: center;
   `;
+
+  const label: BlogPostLabel = {
+    title: "Weight Loss",
+    link: "link",
+  };
+  const label2: BlogPostLabel = {
+    title: "Fitness",
+    link: "link",
+  };
+  const label3: BlogPostLabel = {
+    title: "Subscriber Content",
+    link: "link",
+  };
+
   return (
     <Main>
       <Line />
-      <BlogPost title="Why there is NO such thing as a fat burning workout" />
+      <BlogPost
+        title="Why there is NO such thing as a fat burning workout"
+        links={[label]}
+      />
       <Line />
-      <BlogPost title="This is the macro guide I give to all my clients" />
+      <BlogPost
+        title="This is the macro guide I give to all my clients"
+        links={[label2, label3]}
+      />
       <Line />
     </Main>
   );

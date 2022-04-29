@@ -9,6 +9,7 @@ export interface MainTheme {
     dark400: string;
     dark500: string;
     dark600: string;
+    dark650: string;
     dark700: string;
     dark800: string;
     dark900: string;
@@ -33,6 +34,7 @@ export const theme: MainTheme = {
     dark400: "#71717a",
     dark500: "#a1a1aa",
     dark600: "#d4d4d8",
+    dark650: "#bfbfc2",
     dark700: "#e4e4e7",
     dark800: "#f4f4f5",
     dark900: "#fafafa",
