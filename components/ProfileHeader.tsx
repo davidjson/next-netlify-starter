@@ -2,8 +2,10 @@ import Image from "next/image";
 import styled from "styled-components";
 import { FunctionComponent } from "react";
 
-import trevorBg from "assets/trevorbg.png";
-import trevorProfile from "assets/trevor.jpeg";
+import trevorProfile from "assets/trevorInsta.png";
+import insta1 from "assets/insta1.png";
+import insta2 from "assets/insta2.png";
+import insta3 from "assets/insta3.png";
 
 import VStack from "./styled/VStack";
 import HStack from "./styled/HStack";
@@ -15,9 +17,9 @@ type ISocialIcon = FunctionComponent<SocialIconProps>;
 
 const ProfilePic = styled.div`
   border-radius: 5px;
-  min-width: 40px;
-  width: 40px;
-  height: 40px;
+  min-width: 160px;
+  width: 160px;
+  height: 160px;
   overflow: hidden;
   background: black;
 `;
@@ -42,29 +44,24 @@ const ProfileLinks = () => {
       padding: 5px;
     `;
 
-    const LinkContainer = styled.div`
-      min-width: 1rem;
-      max-width: 100%;
-    `;
-
-    const Link = styled.button`
+    const Link = styled.a`
+      class: button;
       display: flex;
       flex-direction: row;
       align-items: center;
       border: none;
-      padding: 7px 8px 5px 5px;
+      padding: 7px 0px 5px 5px;
       border-radius: 5px;
       background: ${(p) =>
         props.bg ? p.theme.colors[props.bg] : p.theme.colors.dark700};
       width: 100%;
-      // display: block;
-      // display: inline-block;
     `;
 
     const LinkText = styled.p`
       color: ${(p) =>
         props.color ? p.theme.colors[props.color] : p.theme.colors.dark300};
       font-weight: bold;
+      font-size: 14px;
     `;
 
     const SocialIconContainer = styled.div`
@@ -90,29 +87,23 @@ const ProfileLinks = () => {
   };
 
   const LinkWrapper = styled(HStack)`
+    margin-top: 20px;
     flex-wrap: wrap;
+    justify-content: center;
   `;
 
   return (
     <Main>
       <LinkWrapper>
+        {/* <ProfileLink title="About Me" bg="one" color="dark800" /> */}
         <ProfileLink title="Apply For Coaching" bg="one" color="dark800" />
-        <ProfileLink title="YouTube" />
         <ProfileLink title="Facebook Group" />
+        <ProfileLink title="YouTube" />
         <ProfileLink title="Supplements" />
       </LinkWrapper>
     </Main>
   );
 };
-
-const ProfileBox = styled(VStack)`
-  position: relative;
-  top: -10px;
-  width: 100%;
-  border-radius: 10px;
-  background: ${(props) => props.theme.colors.dark900};
-  bg: ${(props) => props.theme.colors.dark900};
-`;
 
 const Line = styled.div`
   height: 1px;
@@ -120,59 +111,102 @@ const Line = styled.div`
   width: 80%;
 `;
 
-const BioMain = styled(HStack)`
-  padding: 15px;
+const BioHeaderContainer = styled(VStack)`
   align-items: center;
-`;
-
-const BioHeaderContainer = styled.div`
-  padding-left: 15px;
+  padding-top: 20px;
 `;
 
 const BioHeader = styled.h1`
-  color: ${(props) => props.theme.colors.dark200};
-  font-size: 1em;
+  color: ${(props) => props.theme.colors.dark300};
+  font-size: 1.5em;
   font-family: "Open Sans";
   font-weight: bold;
 `;
 
 const BioText = styled.p`
   color: ${(props) => props.theme.colors.dark500};
-  font-size: 0.7em;
+  font-size: 1em;
   font-weight: light;
+  text-align: center;
 `;
 
-const Banner = styled.div`
-  width: 100%;
-  height: 100px;
-  overflow: hidden;
-  background: black;
+const ExtendedBioTextContainer = styled.div`
+  background: ${(props) => props.theme.colors.dark800};
+  margin-top: 30px;
+  padding: 20px 20px;
 `;
+
+const ExtendedBioText = styled.p`
+  color: ${(props) => props.theme.colors.dark500};
+  font-size: 1em;
+  font-weight: light;
+  text-align: center;
+`;
+
+const ExtendedBioLink = styled.a`
+  color: black;
+  text-decoration: none;
+`;
+
+const PhotosWrapper = styled(HStack)``;
+
+const InstagramPreviews = () => {
+  const Main = styled(VStack)`
+    margin-top: 20px;
+  `;
+  const Link = styled.a`
+    margin: 10px;
+  `;
+  const PreviewLabel = styled.p`
+    font-size: 10px;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.dark500};
+    font-family: "Open Sans";
+  `;
+  return (
+    <Main>
+      <PreviewLabel>Trending on Instagram</PreviewLabel>
+      <PhotosWrapper>
+        <Link href="https://www.instagram.com/p/Cc5W2mzjY5n/">
+          <Image src={insta1} />
+        </Link>
+        <Link href="https://www.instagram.com/p/Cc0M9nwLrZC/">
+          <Image src={insta2} />
+        </Link>
+        <Link href="https://www.instagram.com/p/CcnXWsWrOba/">
+          <Image src={insta3} />
+        </Link>
+      </PhotosWrapper>
+    </Main>
+  );
+};
 
 export default function ProfileHeader() {
-  const Main = styled.div``;
+  const Main = styled(VStack)`
+    align-items: center;
+  `;
 
   return (
     <Main>
-      <Banner>
-        <Image src={trevorBg} alt="banner" />
-      </Banner>
-      <ProfileBox>
-        <BioMain>
-          <ProfilePic>
-            <Image src={trevorProfile} />
-          </ProfilePic>
-          <BioHeaderContainer>
-            <BioHeader>Trevor and Natalia</BioHeader>
-            <BioText>
-              I help busy men and women take control of their health, lose fat,
-              and build muscle without giving up foods they love.
-            </BioText>
-          </BioHeaderContainer>
-          {/* <BioTextContainer></BioTextContainer> */}
-        </BioMain>
-        <ProfileLinks />
-      </ProfileBox>
+      <ProfilePic>
+        <Image src={trevorProfile} />
+      </ProfilePic>
+      <BioHeaderContainer>
+        <BioHeader>Trevor and Natalia</BioHeader>
+        <BioText>
+          We help busy men and women take control of their health, lose fat, and
+          build muscle without giving up foods they love.
+        </BioText>
+      </BioHeaderContainer>
+      <ProfileLinks />
+      <ExtendedBioTextContainer>
+        <ExtendedBioText>
+          For those of you that don’t know who I am 👇🏼 My name is Trevor Munoz
+          and I was born and raised in Corona, CA...
+          <ExtendedBioLink> More</ExtendedBioLink>
+        </ExtendedBioText>
+      </ExtendedBioTextContainer>
+      <InstagramPreviews />
     </Main>
   );
 }

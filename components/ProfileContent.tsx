@@ -92,16 +92,24 @@ const ContentLink = styled.a`
   background: ${(props) => props.theme.colors.dark900};
 `;
 
-const BlogPost = () => {
+interface BlogPostLabel {
+  title: string;
+  link?: string;
+}
+
+interface BlogPostProps {
+  title?: string;
+  links?: BlogPostLabel[];
+}
+
+const BlogPost = (props: BlogPostProps) => {
   const Main = styled(VStack)`
     padding-right: 20px;
   `;
   return (
     <Main>
       <ContentLinkContainer>
-        <ContentLink href="">
-          Why there is NO such thing as a fat burning workout
-        </ContentLink>
+        <ContentLink href="">{props.title}</ContentLink>
       </ContentLinkContainer>
       <Center>
         <LabelLink title="Weight Loss" />
@@ -119,13 +127,9 @@ export default function ProfileContent() {
   return (
     <Main>
       <Line />
-      <BlogPost />
+      <BlogPost title="Why there is NO such thing as a fat burning workout" />
       <Line />
-      <BlogPost />
-      <Line />
-      <BlogPost />
-      <Line />
-      <BlogPost />
+      <BlogPost title="This is the macro guide I give to all my clients" />
       <Line />
     </Main>
   );
