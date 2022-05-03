@@ -12,6 +12,12 @@ import ProfileContent from "components/ProfileContent";
 import trevorBg from "assets/trevorbg.png";
 import VStack from "components/styled/VStack";
 
+import FacebookLogin from "react-facebook-login";
+
+const responseFacebook = (response: any) => {
+  console.log(response);
+};
+
 export default function Home() {
   const Main = styled.main`
     background: ${(props) => props.theme.colors.dark900};
@@ -53,7 +59,7 @@ export default function Home() {
           />
         </Head>
         <GlobalStyle />
-        <Main>
+        {/* <Main>
           <Banner>
             <Image src={trevorBg} alt="banner" />
           </Banner>
@@ -63,7 +69,15 @@ export default function Home() {
               <ProfileContent />
             </MainContent>
           </MainContentCard>
-        </Main>
+
+        </Main> */}
+        <FacebookLogin
+          appId="703206910875463"
+          // autoLoad={true}
+          fields="name,email,picture"
+          // onClick={componentClicked}
+          callback={responseFacebook}
+        />
       </div>
     </ThemeProvider>
   );
